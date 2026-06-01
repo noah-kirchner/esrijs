@@ -5,8 +5,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
+  
+  <!-- Call ArcGIS API -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.25/"></script>
+
+  <!-- Add modules needed for full screen map app -->
+  <script>
+  require([
+    "esri/config",
+    "esri/Map",
+    "esri/views/MapView"
+  ], function(esriConfig, Map, MapView) {
+    
+    esriConfig.apiKey = "AAPTaa9E1vn_Ct8yjoJyTsAZ20A..NXZTAONl7Ne_FV7ahFJyatCBKsgzfsMsJRZx0RHWAdfIhNy4sG0UEA9R3OFyJogHr9A7ax6NHI4m5jRQaUI0e0Z-G9g0RziGO0lTsR3vV8vZgYpFfyDD5i3dsU48UuHIR7pnhnTDPZieL2Qw48dzU6L8OM3qGR6YmcTUG4TLtZvKtuP6qO46RpOFANmgyUkWmo1CzXi-5COIjQusHbGylzRA9czvx_SzmwOmXO2irNvZShJ_XBf_bAn7HqV4QRMbdfoXCcNmNg..AT1_IMV5kkt8";
+      
+    // Create the Map instance
+    const map = new Map({
+      basemap: "arcgis-topographic" // Map service style
+    });
+
+    // Create the MapView container rendering our map
+    const view = new MapView({
+      map: map,
+      center: [-97.7431, 30.2672], // Longitude, latitude format
+      zoom: 13, // Zoom scale level
+      container: "viewDiv" // ID of our body div
+    });
+  </script>
+
+<!-- CSS Style -->
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
 </head>
 <body>
-  <h1>Hello, world! Using Git </h1>
+  <h1>BOdy</h1>
+  <div id="viewDiv"></div>
 </body>
 </html>
