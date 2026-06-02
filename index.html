@@ -94,15 +94,21 @@
     "esri/widgets/Expand",
     "esri/widgets/Locate",
     "esri/widgets/Search",
-    "esri/widgets/Zoom"
-  ], function(esriConfig, Map, MapView, Basemap, VectorTileLayer, BasemapGallery, Expand, Locate, Search, Zoom) {
+    "esri/widgets/Zoom",
+    "esri/identity/IdentityManager"
+  ], function(esriConfig, Map, MapView, Basemap, VectorTileLayer, BasemapGallery, Expand, Locate, Search, Zoom, esriId) {
 
     esriConfig.apiKey = "AAPTaa9E1vn_Ct8yjoJyTsAZ20A..NXZTAONl7Ne_FV7ahFJyatCBKsgzfsMsJRZx0RHWAdfIhNy4sG0UEA9R3OFyJogHr9A7ax6NHI4m5jRQaUI0e0Z-G9g0RziGO0lTsR3vV8vZgYpFfyDD5i3dsU48UuHIR7pnhnTDPZieL2Qw48dzU6L8OM3qGR6YmcTUG4TLtZvKtuP6qO46RpOFANmgyUkWmo1CzXi-5COIjQusHbGylzRA9czvx_SzmwOmXO2irNvZShJ_XBf_bAn7HqV4QRMbdfoXCcNmNg..AT1_IMV5kkt8";
+
+    esriId.registerToken({
+      server: "https://basemapstyles-api.arcgis.com",
+      token: esriConfig.apiKey
+    });
 
     const communityBasemap = new Basemap({
       baseLayers: [
         new VectorTileLayer({
-          url: "https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles/arcgis/community?token=" + esriConfig.apiKey
+          url: "https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles/arcgis/community"
         })
       ],
       title: "Community",
